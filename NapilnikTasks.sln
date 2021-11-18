@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NapilnikTasks", "NapilnikTasks\NapilnikTasks.csproj", "{217BC02D-34F1-45FC-8FF4-540A2FF93CC5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{B76012EB-0D58-41C2-9FBE-122A86CA8CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NapilnikTasks", "NapilnikTasks\NapilnikTasks.csproj", "{58A30B2C-0532-439B-9E32-423C81663AE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{217BC02D-34F1-45FC-8FF4-540A2FF93CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{217BC02D-34F1-45FC-8FF4-540A2FF93CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{217BC02D-34F1-45FC-8FF4-540A2FF93CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{217BC02D-34F1-45FC-8FF4-540A2FF93CC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B76012EB-0D58-41C2-9FBE-122A86CA8CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B76012EB-0D58-41C2-9FBE-122A86CA8CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B76012EB-0D58-41C2-9FBE-122A86CA8CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B76012EB-0D58-41C2-9FBE-122A86CA8CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A30B2C-0532-439B-9E32-423C81663AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A30B2C-0532-439B-9E32-423C81663AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A30B2C-0532-439B-9E32-423C81663AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A30B2C-0532-439B-9E32-423C81663AE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

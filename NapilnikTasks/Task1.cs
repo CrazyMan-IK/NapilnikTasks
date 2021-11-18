@@ -1,18 +1,14 @@
-using NUnit.Framework;
+using System;
+using Xunit;
 
 namespace NapilnikTasks
 {
-    public class Tests
+    public class Task1
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
+        [Fact]
         public void Test1()
         {
-            Assert.Pass();
+
         }
     }
 }
