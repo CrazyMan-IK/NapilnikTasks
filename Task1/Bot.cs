@@ -1,12 +1,24 @@
 ﻿namespace Task1
 {
-    class Bot
+    public class Bot
     {
-        public Weapon Weapon;
+        private readonly Weapon _weapon = null;
+
+        public Bot(Weapon weapon)
+        {
+            _weapon = weapon;
+        }
 
         public void OnSeePlayer(Player player)
         {
-            Weapon.Fire(player);
+            if (_weapon.CannotFire())
+            {
+                if (_weapon.NeedReloading)
+                {
+                    _weapon.Reload();
+                }
+            }
+            _weapon.Fire(player);
         }
     }
 }
