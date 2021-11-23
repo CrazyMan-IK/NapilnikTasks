@@ -23,7 +23,7 @@ namespace NapilnikTasks
             _weapon.Fire(_player);
 
             Assert.Equal(90, _player.Health);
-            Assert.Equal(4, _weapon.CurrentBulletsCount);
+            Assert.Equal(4, _weapon.Bullets);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace NapilnikTasks
             _bot.OnSeePlayer(_player);
 
             Assert.Equal(90, _player.Health);
-            Assert.Equal(4, _weapon.CurrentBulletsCount);
+            Assert.Equal(4, _weapon.Bullets);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace NapilnikTasks
             }
 
             Assert.Equal(0, _player.Health);
-            Assert.Equal(0, _weapon.CurrentBulletsCount);
+            Assert.Equal(0, _weapon.Bullets);
         }
     }
 }

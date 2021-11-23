@@ -7,8 +7,8 @@ namespace Task1
         private readonly int _damage = 0;
         private readonly int _bulletsPerMagazine = 0;
 
-        public int CurrentBulletsCount { get; private set; }
-        public bool NeedReloading => CurrentBulletsCount <= 0;
+        public int Bullets { get; private set; }
+        public bool NeedReloading => Bullets <= 0;
 
         public Weapon(int damage, int bulletsPerMagazine)
         {
@@ -23,7 +23,7 @@ namespace Task1
 
             _damage = damage;
 
-            CurrentBulletsCount = bulletsPerMagazine;
+            Bullets = bulletsPerMagazine;
             _bulletsPerMagazine = bulletsPerMagazine;
         }
 
@@ -41,12 +41,12 @@ namespace Task1
 
             target.TakeDamage(_damage);
 
-            CurrentBulletsCount -= 1;
+            Bullets -= 1;
         }
 
         public void Reload()
         {
-            CurrentBulletsCount = _bulletsPerMagazine;
+            Bullets = _bulletsPerMagazine;
         }
     }
 }
