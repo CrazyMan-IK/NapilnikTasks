@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class CellStorage : ICellStorage
+    public class CellStorage : IReadOnlyCellStorage
     {
         private Dictionary<Good, Cell> _cells = new Dictionary<Good, Cell>();
 

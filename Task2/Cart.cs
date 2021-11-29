@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Cart : ICellStorage
+    public class Cart : IReadOnlyCellStorage
     {
         private readonly CellStorage _storage = new CellStorage();
         private readonly Warehouse _warehouse;

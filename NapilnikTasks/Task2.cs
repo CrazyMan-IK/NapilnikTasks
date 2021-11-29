@@ -42,7 +42,7 @@ namespace NapilnikTasks
             Assert.Throws<ArgumentOutOfRangeException>(() => cart.Add(iPhone12, 9)); //Ошибка, после заказа со склада убираются заказанные товары
         }
 
-        private void ViewStorage(ICellStorage storage)
+        private void ViewStorage(IReadOnlyCellStorage storage)
         {
             foreach (var cell in storage.Cells.Values)
             {
