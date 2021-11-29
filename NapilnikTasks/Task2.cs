@@ -1,11 +1,19 @@
 ﻿using System;
 using Xunit;
+using Xunit.Abstractions;
 using Task2;
 
 namespace NapilnikTasks
 {
     public class Task2
     {
+        private readonly ITestOutputHelper _output = null;
+
+        public Task2(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public void CommonTest()
         {
@@ -20,16 +28,26 @@ namespace NapilnikTasks
             warehouse.Delive(iPhone11, 1);
 
             //Вывод всех товаров на складе с их остатком
+            ViewStorage(warehouse);
 
             Cart cart = shop.Cart();
             cart.Add(iPhone12, 4);
-            cart.Add(iPhone11, 3); //при такой ситуации возникает ошибка так, как нет нужного количества товара на складе
+            Assert.Throws<ArgumentOutOfRangeException>(() => cart.Add(iPhone11, 3)); //при такой ситуации возникает ошибка так, как нет нужного количества товара на складе
 
             //Вывод всех товаров в корзине
+            ViewStorage(cart);
 
-            Console.WriteLine(cart.Order().Paylink);
+            _output.WriteLine(cart.Order().Paylink);
 
-            cart.Add(iPhone12, 9); //Ошибка, после заказа со склада убираются заказанные товары
+            Assert.Throws<ArgumentOutOfRangeException>(() => cart.Add(iPhone12, 9)); //Ошибка, после заказа со склада убираются заказанные товары
+        }
+
+        private void ViewStorage(ICellStorage storage)
+        {
+            foreach (var cell in storage.Cells.Values)
+            {
+                _output.WriteLine(cell.ToString());
+            }
         }
     }
 }
