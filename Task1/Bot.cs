@@ -13,13 +13,6 @@ namespace Task1
 
         public void OnSeePlayer(Player player)
         {
-            if (_weapon.CannotFire())
-            {
-                if (_weapon.NeedReloading)
-                {
-                    _weapon.Reload();
-                }
-            }
             _weapon.Fire(player);
         }
     }

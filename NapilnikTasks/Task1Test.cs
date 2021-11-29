@@ -13,7 +13,7 @@ namespace NapilnikTasks
         public Task1Test()
         {
             _player = new Player(100);
-            _weapon = new Weapon(10, 5);
+            _weapon = new Weapon(10, 15);
             _bot = new Bot(_weapon);
         }
 
@@ -23,13 +23,13 @@ namespace NapilnikTasks
             _weapon.Fire(_player);
 
             Assert.Equal(90, _player.Health);
-            Assert.Equal(4, _weapon.Bullets);
+            Assert.Equal(14, _weapon.Bullets);
         }
 
         [Fact]
         public void CheckWeaponFireMethodException()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 15; i++)
             {
                 _weapon.Fire(_player);
             }
@@ -43,7 +43,7 @@ namespace NapilnikTasks
             _bot.OnSeePlayer(_player);
 
             Assert.Equal(90, _player.Health);
-            Assert.Equal(4, _weapon.Bullets);
+            Assert.Equal(14, _weapon.Bullets);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace NapilnikTasks
             }
 
             Assert.Equal(0, _player.Health);
-            Assert.Equal(0, _weapon.Bullets);
+            Assert.Equal(5, _weapon.Bullets);
         }
     }
 }
