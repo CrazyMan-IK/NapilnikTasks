@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Cart : IReadOnlyCellStorage
+    public class Cart : IReadOnlyGoodStorage
     {
-        private readonly CellStorage _storage = new CellStorage();
+        private readonly GoodStorage _storage = new GoodStorage();
         private readonly Warehouse _warehouse;
 
-        public IReadOnlyDictionary<Good, IReadOnlyCell> Cells => _storage.Cells;
+        public IReadOnlyDictionary<Good, int> Goods => _storage.Goods;
 
         public Cart(Warehouse warehouse)
         {
@@ -30,13 +30,13 @@ namespace Task2
 
         public IReadOnlyOrder Order()
         {
-            foreach (var cell in Cells.Values)
+            foreach (var (good, count) in Goods)
             {
-                _warehouse.Take(cell.Good, cell.Count);
+                _warehouse.Take(good, count);
             }
             _storage.Clear();
 
-            return new Order(new RandomString(16, _storage.Cells.GetHashCode()).ToString());
+            return new Order(new RandomString(16, _storage.Goods.GetHashCode()).ToString());
         }
     }
 }

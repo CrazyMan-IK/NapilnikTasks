@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public interface IReadOnlyCellStorage
+    public interface IReadOnlyGoodStorage
     {
-        IReadOnlyDictionary<Good, IReadOnlyCell> Cells { get; }
+        IReadOnlyDictionary<Good, int> Goods { get; }
     }
 }

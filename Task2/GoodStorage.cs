@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class CellStorage : IReadOnlyCellStorage
+    public class GoodStorage : IReadOnlyGoodStorage
     {
-        private Dictionary<Good, Cell> _cells = new Dictionary<Good, Cell>();
+        private readonly Dictionary<Good, int> _goods = new Dictionary<Good, int>();
 
-        public IReadOnlyDictionary<Good, IReadOnlyCell> Cells => _cells.ToDictionary<KeyValuePair<Good, Cell>, Good, IReadOnlyCell>(x => x.Key, x => x.Value);
+        public IReadOnlyDictionary<Good, int> Goods => _goods;
 
         public void Add(Good good, int count)
         {
@@ -23,13 +23,13 @@ namespace Task2
                 throw new ArgumentOutOfRangeException(nameof(count));
             }
 
-            if (!_cells.TryGetValue(good, out var cell))
+            if (!_goods.TryGetValue(good, out var cell))
             {
-                cell = new Cell(good, 0);
-                _cells[good] = cell;
+                cell = 0;
+                _goods[good] = cell;
             }
 
-            cell.Add(count);
+            _goods[good] = cell + count;
         }
 
         public void Subtract(Good good, int count)
@@ -43,22 +43,22 @@ namespace Task2
                 throw new ArgumentOutOfRangeException(nameof(count));
             }
 
-            if (!_cells.TryGetValue(good, out var cell))
+            if (!_goods.TryGetValue(good, out var cell))
             {
                 throw new InvalidOperationException();
             }
 
-            if (cell.Count < count)
+            if (cell < count)
             {
                 throw new ArgumentOutOfRangeException(nameof(count));
             }
 
-            cell.Subtract(count);
+            _goods[good] = cell - count;
         }
 
         public void Clear()
         {
-            _cells.Clear();
+            _goods.Clear();
         }
     }
 }

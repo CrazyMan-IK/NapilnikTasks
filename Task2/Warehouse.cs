@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Warehouse : IReadOnlyCellStorage
+    public class Warehouse : IReadOnlyGoodStorage
     {
-        private readonly CellStorage _storage = new CellStorage();
+        private readonly GoodStorage _storage = new GoodStorage();
 
-        public IReadOnlyDictionary<Good, IReadOnlyCell> Cells => _storage.Cells;
+        public IReadOnlyDictionary<Good, int> Goods => _storage.Goods;
 
         public void Delive(Good good, int count)
         {
@@ -29,9 +29,7 @@ namespace Task2
                 throw new ArgumentOutOfRangeException(nameof(count));
             }
 
-            var cell = _storage.Cells[good];
-            
-            return cell != null && cell.Count >= count;
+            return _storage.Goods.TryGetValue(good, out var goodCount) && goodCount >= count;
         }
     }
 }
