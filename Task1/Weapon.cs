@@ -24,9 +24,9 @@ namespace Task1
             Bullets = bulletsPerMagazine;
         }
 
-        public bool CannotFire()
+        public bool CanFire()
         {
-            return Bullets <= 0;
+            return Bullets > 0;
         }
 
         public void Fire(IDamageable target)
@@ -35,7 +35,7 @@ namespace Task1
             {
                 throw new ArgumentNullException(nameof(target));
             }
-            if (CannotFire())
+            if (!CanFire())
             {
                 throw new InvalidOperationException();
             }
