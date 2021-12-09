@@ -1,12 +1,19 @@
-﻿namespace Task1
+﻿using System;
+
+namespace Task1
 {
-    class Bot
+    public class Bot
     {
-        public Weapon Weapon;
+        private readonly Weapon _weapon = null;
+
+        public Bot(Weapon weapon)
+        {
+            _weapon = weapon ?? throw new ArgumentNullException(nameof(weapon));
+        }
 
         public void OnSeePlayer(Player player)
         {
-            Weapon.Fire(player);
+            _weapon.Fire(player);
         }
     }
 }
